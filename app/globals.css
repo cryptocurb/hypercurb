@@ -759,3 +759,283 @@ body {
   letter-spacing: 0.12em;
   font-weight: 700;
 }
+
+/* ===== Perps page ===== */
+.perp-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+@media (max-width: 768px) {
+  .perp-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.perp-stat-card {
+  border-radius: 16px;
+  padding: 16px 18px 14px;
+  background: linear-gradient(180deg, rgba(151,252,228,0.04), rgba(15,57,51,0.08));
+  border: 1px solid var(--hl-border);
+}
+.perp-stat-label {
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(245,254,253,0.50);
+}
+.perp-stat-value {
+  font-family: "Space Mono", monospace;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 6px 0 4px;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+.perp-stat-sub {
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  color: rgba(245,254,253,0.45);
+  letter-spacing: 0.02em;
+}
+
+/* Leaderboard table inside screenshot board */
+.perp-leaderboard {
+  font-size: 13px;
+}
+.perp-leaderboard thead .hl-col-header th.perp-rank-col {
+  width: 36px;
+  text-align: left;
+}
+.perp-leaderboard thead .hl-col-header th.perp-venue-col {
+  width: 200px;
+  text-align: left;
+}
+.perp-leaderboard thead .hl-col-header th.perp-chain-col {
+  text-align: left;
+}
+.perp-leaderboard tbody td.perp-rank {
+  text-align: left;
+  font-size: 12px;
+  color: rgba(245,254,253,0.45);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.perp-leaderboard tbody td.perp-venue {
+  text-align: left;
+}
+.perp-venue-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--hl-foam);
+  letter-spacing: 0.02em;
+}
+.perp-leaderboard tbody td.perp-chain {
+  text-align: left;
+  font-size: 11px;
+  color: rgba(245,254,253,0.50);
+  letter-spacing: 0.02em;
+}
+.perp-others-row td {
+  border-bottom: 1px dashed rgba(151,252,228,0.10) !important;
+  opacity: 0.65;
+}
+.perp-others-label {
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(245,254,253,0.55) !important;
+}
+
+/* ===== Chain-ranked bar leaderboard (top board on /perps) ===== */
+.chain-ranks {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.chain-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  background: rgba(151,252,228,0.02);
+  border: 1px solid rgba(151,252,228,0.06);
+}
+.chain-row-hl {
+  background: linear-gradient(
+    90deg,
+    rgba(151,252,228,0.10),
+    rgba(151,252,228,0.02) 80%
+  );
+  border: 1px solid rgba(151,252,228,0.35);
+}
+.chain-rank {
+  font-family: "Space Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(245,254,253,0.45);
+  width: 36px;
+  flex: none;
+  letter-spacing: 0.04em;
+}
+.chain-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex: none;
+}
+.chain-name {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--hl-foam);
+  width: 160px;
+  flex: none;
+  letter-spacing: -0.005em;
+}
+.chain-bar-wrap {
+  flex: 1;
+  height: 24px;
+  background: rgba(245,254,253,0.04);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.chain-bar {
+  height: 100%;
+  border-radius: 6px;
+  min-width: 4px;
+  box-shadow: 0 0 18px rgba(151,252,228,0.15);
+}
+.chain-vol {
+  font-family: "Space Mono", monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--hl-foam);
+  width: 110px;
+  text-align: right;
+  flex: none;
+  letter-spacing: -0.01em;
+}
+.chain-row-hl .chain-name {
+  color: var(--hl-aqua);
+}
+.chain-row-hl .chain-vol {
+  color: var(--hl-aqua);
+}
+
+/* ===== Stacked weekly column chart (.wkx) — middle board ===== */
+.hl-shot .wkx { margin-top: 4px; }
+.hl-shot .wkx-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.hl-shot .wkx-leg {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  color: rgba(245,254,253,0.65);
+  letter-spacing: 0.02em;
+}
+.hl-shot .wkx-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+.hl-shot .wkx-body {
+  display: flex;
+}
+.hl-shot .wkx-yaxis {
+  position: relative;
+  width: 58px;
+  flex: none;
+}
+.hl-shot .wkx-ytick {
+  position: absolute;
+  right: 10px;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  color: rgba(245,254,253,0.45);
+  white-space: nowrap;
+}
+.hl-shot .wkx-plot {
+  position: relative;
+  flex: 1;
+  border-left: 1px solid rgba(151,252,228,0.18);
+}
+.hl-shot .wkx-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px dashed rgba(151,252,228,0.08);
+}
+.hl-shot .wkx-cols {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: stretch;
+}
+.hl-shot .wkx-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 1px;
+  cursor: pointer;
+}
+.hl-shot .wkx-col-on { background: rgba(151,252,228,0.06); }
+.hl-shot .wkx-seg { width: 100%; }
+.hl-shot .wkx-tip {
+  position: absolute;
+  top: 6px;
+  z-index: 6;
+  pointer-events: none;
+  min-width: 210px;
+  background: #04060c;
+  border: 1px solid rgba(151,252,228,0.40);
+  border-radius: 10px;
+  padding: 10px 12px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+}
+.hl-shot .wkx-tip-date {
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  color: rgba(245,254,253,0.55);
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+}
+.hl-shot .wkx-tip-total {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Space Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--hl-foam);
+  padding-bottom: 7px;
+  margin-bottom: 7px;
+  border-bottom: 1px solid rgba(151,252,228,0.16);
+}
+.hl-shot .wkx-tip-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  padding: 2.5px 0;
+}
+.hl-shot .wkx-tip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  flex: none;
+}
+.hl-shot .wkx-tip-name {
+  color: rgba(245,254,253,0.70);
+  flex: 1;
+}
+.hl-shot .wkx-tip-val {
+  color: var(--hl-foam);
+  font-weight: 700;
+}

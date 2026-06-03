@@ -1,6 +1,7 @@
 import Link from "next/link";
 import HypePriceHero from "@/components/HypePriceHero";
 import { etfView } from "@/lib/etf";
+import { perpsView } from "@/lib/perps";
 
 export const metadata = { title: "Hypercurb · Main" };
 
@@ -16,6 +17,8 @@ export default function Home() {
     (s, v) => s + v,
     0
   );
+  const perps = perpsView();
+  const perpHl = perps.hl;
 
   return (
     <div className="space-y-7">
@@ -60,10 +63,14 @@ export default function Home() {
 
         <Link href="/perps" className="hub-tile">
           <span className="hub-eyebrow">Perp Volume · 7d</span>
-          <span className="hub-value">$45.9B</span>
+          <span className="hub-value">
+            {perpHl ? `$${perpHl.vol7dBn.toFixed(1)}B` : "—"}
+          </span>
           <span className="hub-sub">
-            Hyperliquid L1 leads all chains by perp volume — $190B 30-day, $10B
-            open interest.
+            Hyperliquid L1 leads all chains —{" "}
+            {perpHl ? `$${Math.round(perpHl.vol30dBn)}B 30-day` : "—"},{" "}
+            {perpHl ? `$${perpHl.oiBn.toFixed(1)}B open interest` : "—"},{" "}
+            {perpHl ? `${perpHl.share30d.toFixed(0)}% market share` : "—"}.
           </span>
           <span className="hub-cta">Open Perp board</span>
         </Link>

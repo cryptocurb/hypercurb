@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "unit": "US$ billions",
+    "source": "DefiLlama Perps (defillama.com/perps)",
+    "snapshotDate": "2026-06-02",
+    "totalMarket30dBn": 540.84,
+    "note": "Top perp DEX leaderboard — current snapshot. Hyperliquid anchor (31.9% share) is from DefiLlama; competitor numbers are best-effort estimates. Update the whole array each week by visiting defillama.com/perps and pasting the latest figures."
+  },
+  "venues": [
+    { "rank": 1, "name": "Hyperliquid",  "chain": "Hyperliquid L1", "vol7dBn": 45.94, "vol30dBn": 172.63, "oiBn": 10.10, "isHyperliquid": true },
+    { "rank": 2, "name": "Aster",        "chain": "BNB Chain",      "vol7dBn": 14.20, "vol30dBn": 54.10,  "oiBn": 2.80 },
+    { "rank": 3, "name": "dYdX",         "chain": "dYdX Chain",     "vol7dBn": 11.80, "vol30dBn": 45.70,  "oiBn": 1.90 },
+    { "rank": 4, "name": "Jupiter Perps","chain": "Solana",         "vol7dBn": 10.50, "vol30dBn": 40.20,  "oiBn": 1.50 },
+    { "rank": 5, "name": "Orderly",      "chain": "Multi-chain",    "vol7dBn": 7.30,  "vol30dBn": 28.50,  "oiBn": 0.80 },
+    { "rank": 6, "name": "Drift",        "chain": "Solana",         "vol7dBn": 5.60,  "vol30dBn": 21.80,  "oiBn": 0.60 },
+    { "rank": 7, "name": "GMX",          "chain": "Arbitrum",       "vol7dBn": 4.20,  "vol30dBn": 16.40,  "oiBn": 0.50 },
+    { "rank": 8, "name": "Aevo",         "chain": "Aevo L2",        "vol7dBn": 3.60,  "vol30dBn": 14.00,  "oiBn": 0.40 }
+  ]
+}

@@ -489,3 +489,273 @@ body {
 .etf-pos { color: var(--hl-aqua); }
 .etf-neg { color: #ff6b7a; }
 .etf-zero { color: rgba(245, 254, 253, 0.30); }
+
+/* ===========================================================
+   Screenshot board — 1008px fixed-width card used for the
+   Take Screenshot button. Scales down via CSS transform on
+   narrow screens, but exports at full resolution via
+   html2canvas (see components/BoardFrame.tsx + ScreenshotButton).
+   =========================================================== */
+.hl-board {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.board-frame { display: block; }
+.board-scaler {
+  transform-origin: top left;
+  display: inline-block;
+}
+.hl-shot {
+  width: 1008px;
+  background: #04060c;
+  background-image:
+    radial-gradient(ellipse 800px 400px at 100% 0%, rgba(151,252,228,0.06), transparent 60%),
+    radial-gradient(ellipse 600px 300px at 0% 100%, rgba(15,57,51,0.50), transparent 60%);
+  border-radius: 22px;
+  border: 1px solid rgba(151,252,228,0.20);
+  padding: 32px 38px 26px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+}
+.hl-card {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ---- BoardHeader ---- */
+.hl-bh {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(151,252,228,0.14);
+}
+.hl-bh-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hl-bh-profile img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid rgba(151,252,228,0.40);
+  object-fit: cover;
+}
+.hl-bh-handle {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.hl-bh-name {
+  font-family: "Space Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--hl-foam);
+  letter-spacing: 0.02em;
+}
+.hl-bh-x {
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  color: var(--hl-aqua);
+  letter-spacing: 0.02em;
+}
+.hl-bh-title {
+  text-align: center;
+}
+.hl-bh-title h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 38px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+.hl-bh-foam { color: var(--hl-foam); }
+.hl-bh-italic {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--hl-foam);
+}
+.hl-bh-aqua { color: var(--hl-aqua); font-style: italic; font-weight: 400; }
+.hl-bh-sub {
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+  color: rgba(245,254,253,0.55);
+  margin-top: 6px;
+  letter-spacing: 0.04em;
+}
+.hl-bh-logo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* ---- Board table ---- */
+.hl-table-wrap { overflow: hidden; }
+.hl-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: "Space Mono", monospace;
+  font-size: 14px;
+}
+.hl-table thead .hl-col-header th {
+  text-align: right;
+  padding: 14px 12px 10px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: rgba(245,254,253,0.55);
+  border-bottom: 1px solid rgba(151,252,228,0.10);
+  font-weight: 700;
+  vertical-align: bottom;
+}
+.hl-table thead .hl-col-header th:first-child { text-align: left; }
+.hl-ticker-chip {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+.hl-issuer-tag {
+  font-size: 10px;
+  font-weight: 400;
+  color: rgba(245,254,253,0.45);
+  margin-top: 4px;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+.hl-meta-row td {
+  text-align: right;
+  padding: 4px 12px;
+  font-size: 11px;
+  color: rgba(245,254,253,0.50);
+  letter-spacing: 0.10em;
+}
+.hl-meta-row td:first-child {
+  text-align: left;
+  color: rgba(245,254,253,0.35);
+  font-weight: 700;
+}
+.hl-table tbody td {
+  padding: 11px 12px;
+  text-align: right;
+  border-bottom: 1px solid rgba(151,252,228,0.05);
+  color: var(--hl-foam);
+}
+.hl-table tbody td.hl-date {
+  text-align: left;
+  color: rgba(245,254,253,0.75);
+  font-size: 13px;
+}
+.hl-table tbody td.hl-total { font-weight: 700; }
+
+.hl-latest-row {
+  background: linear-gradient(
+    90deg,
+    rgba(151,252,228,0.07),
+    rgba(151,252,228,0.02) 80%
+  );
+  border-top: 1px solid rgba(151,252,228,0.35);
+  border-bottom: 1px solid rgba(151,252,228,0.35) !important;
+}
+.hl-latest-row td { border-bottom-color: transparent !important; }
+.hl-latest-badge {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(151,252,228,0.16);
+  color: var(--hl-aqua);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  vertical-align: middle;
+}
+
+.hl-total-row td {
+  padding: 14px 12px 4px;
+  font-weight: 700;
+  font-size: 14px;
+  border-top: 1px solid rgba(151,252,228,0.18);
+  border-bottom: none !important;
+  color: rgba(245,254,253,0.75);
+  text-align: right;
+}
+.hl-total-row td:first-child {
+  text-align: left;
+  color: rgba(245,254,253,0.55);
+  letter-spacing: 0.04em;
+  font-size: 13px;
+}
+.hl-aum-cell {
+  color: var(--hl-aqua) !important;
+  font-size: 15px !important;
+}
+
+/* ---- Bottom stat tiles ---- */
+.hl-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.hl-stat-box {
+  border-radius: 14px;
+  padding: 14px 16px 16px;
+  background: linear-gradient(180deg, rgba(151,252,228,0.04), rgba(15,57,51,0.10));
+  border: 1px solid rgba(151,252,228,0.12);
+}
+.hl-stat-label {
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(245,254,253,0.50);
+}
+.hl-stat-value {
+  font-family: "Space Mono", monospace;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 6px 0 4px;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+.hl-stat-sub {
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  color: rgba(245,254,253,0.45);
+  letter-spacing: 0.02em;
+}
+.hl-aqua { color: var(--hl-aqua); }
+.hl-foam { color: var(--hl-foam); }
+.hl-neg { color: #ff6b7a; }
+
+/* ---- Source bar ---- */
+.hl-source-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  border-top: 1px solid rgba(151,252,228,0.10);
+}
+.hl-source-text {
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  color: rgba(245,254,253,0.45);
+  letter-spacing: 0.04em;
+}
+.hl-source-text span {
+  color: var(--hl-aqua);
+}
+.hl-unit-tag {
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  color: rgba(182,149,255,0.85);
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}

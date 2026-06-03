@@ -1,10 +1,11 @@
 /**
- * Hyperliquid logomark — approximation of the official brand mark.
+ * Official Hyperliquid logomark (the M-shape "wave" symbol).
  *
- * REPLACE this with the official SVG from
- * https://hyperliquid.gitbook.io/hyperliquid-docs/brand-kit when you grab
- * the file. Until then this is a stand-in horizontal "infinity" shape in
- * aquamarine (#97FCE4) that reads correctly at any size.
+ * Path is taken verbatim from the Hyperliquid brand kit
+ * (https://hyperliquid.gitbook.io/hyperliquid-docs/brand-kit), specifically
+ * the file `HL symbol_mint green.svg` which uses the brand aquamarine
+ * #97FCE4. The fill is parameterized via the `color` prop so the same mark
+ * can render in foam/white on screenshot exports if needed.
  */
 export default function HyperLogo({
   className = "h-7 w-auto",
@@ -15,13 +16,14 @@ export default function HyperLogo({
 }) {
   return (
     <svg
-      viewBox="0 0 576 576"
+      viewBox="0 0 144 144"
+      fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-label="Hyperliquid"
     >
       <path
-        d="M82 288 C82 196, 156 134, 230 178 C290 213, 310 246, 288 288 C266 330, 286 363, 346 398 C420 442, 494 380, 494 288 C494 196, 420 134, 346 178 C286 213, 266 246, 288 288 C310 330, 290 363, 230 398 C156 442, 82 380, 82 288 Z"
+        d="M144 71.6991C144 119.306 114.866 134.582 99.5156 120.98C86.8804 109.889 83.1211 86.4521 64.116 84.0456C39.9942 81.0113 37.9057 113.133 22.0334 113.133C3.5504 113.133 0 86.2428 0 72.4315C0 58.3063 3.96809 39.0542 19.736 39.0542C38.1146 39.0542 39.1588 66.5722 62.132 65.1073C85.0007 63.5379 85.4184 34.8689 100.247 22.6271C113.195 12.0593 144 23.4641 144 71.6991Z"
         fill={color}
       />
     </svg>

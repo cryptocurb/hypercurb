@@ -1,9 +1,22 @@
 import Link from "next/link";
 import HypePriceHero from "@/components/HypePriceHero";
+import { etfView } from "@/lib/etf";
 
 export const metadata = { title: "Hypercurb · Main" };
 
+function bigMm(mm: number) {
+  const abs = Math.abs(mm);
+  const sign = mm < 0 ? "−" : "+";
+  return `${sign}$${Math.round(abs).toLocaleString("en-US")}M`;
+}
+
 export default function Home() {
+  const etf = etfView();
+  const etfTotalMm = Object.values(etf.issuerCumulative).reduce(
+    (s, v) => s + v,
+    0
+  );
+
   return (
     <div className="space-y-7">
       {/* Live HYPE price + daily candle chart */}
@@ -37,9 +50,10 @@ export default function Home() {
       <div className="hub-grid">
         <Link href="/etf" className="hub-tile">
           <span className="hub-eyebrow">ETF Net Flow · since May 12</span>
-          <span className="hub-value">+$136M</span>
+          <span className="hub-value">{bigMm(etfTotalMm)}</span>
           <span className="hub-sub">
-            BHYP (Bitwise) + THYP (21Shares) cumulative net flow since launch.
+            BHYP (Bitwise) + THYP (21Shares) cumulative net flow since launch
+            on May 12, 2026.
           </span>
           <span className="hub-cta">Open ETF board</span>
         </Link>

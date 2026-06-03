@@ -292,3 +292,200 @@ body {
   max-width: 720px;
   margin-top: 6px;
 }
+
+/* ===== ETF page ===== */
+.etf-aum-banner {
+  border-radius: 18px;
+  padding: 26px 28px 28px;
+  background:
+    radial-gradient(ellipse at top right, rgba(151, 252, 228, 0.16), transparent 60%),
+    linear-gradient(180deg, rgba(151, 252, 228, 0.06), rgba(15, 57, 51, 0.10));
+  border: 1px solid rgba(151, 252, 228, 0.28);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+}
+.etf-aum-label {
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(245, 254, 253, 0.55);
+}
+.etf-aum-value {
+  font-family: "Space Mono", monospace;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--hl-aqua);
+  letter-spacing: -0.02em;
+  margin: 4px 0 2px;
+  text-shadow: 0 0 28px rgba(151, 252, 228, 0.30);
+}
+.etf-aum-sub {
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+  color: rgba(245, 254, 253, 0.50);
+  letter-spacing: 0.02em;
+}
+@media (max-width: 640px) {
+  .etf-aum-value { font-size: 40px; }
+}
+
+.etf-issuer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+@media (max-width: 640px) {
+  .etf-issuer-grid { grid-template-columns: 1fr; }
+}
+.etf-issuer-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  padding: 18px 20px 16px;
+  background: linear-gradient(180deg, rgba(151, 252, 228, 0.04), rgba(15, 57, 51, 0.08));
+  border: 1px solid var(--hl-border);
+}
+.etf-issuer-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+}
+.etf-issuer-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.etf-issuer-ticker {
+  font-family: "Space Mono", monospace;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.etf-issuer-name {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  color: rgba(245, 254, 253, 0.55);
+}
+.etf-issuer-value {
+  font-family: "Space Mono", monospace;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--hl-foam);
+  letter-spacing: -0.01em;
+}
+.etf-issuer-sub {
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  color: rgba(245, 254, 253, 0.50);
+  margin-top: 4px;
+  letter-spacing: 0.02em;
+}
+
+.etf-week-highlight {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 22px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, rgba(151, 252, 228, 0.06), rgba(182, 149, 255, 0.06));
+  border: 1px solid var(--hl-border);
+  flex-wrap: wrap;
+}
+.etf-week-label {
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(245, 254, 253, 0.50);
+}
+.etf-week-value {
+  font-family: "Space Mono", monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--hl-aqua);
+  margin-top: 2px;
+}
+.etf-week-split {
+  display: flex;
+  gap: 22px;
+  font-family: "Space Mono", monospace;
+  font-size: 13px;
+  color: var(--hl-foam);
+}
+
+.etf-board-head {
+  margin-bottom: 14px;
+}
+
+/* Daily table */
+.etf-table-wrap { overflow-x: auto; }
+.etf-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: "Space Mono", monospace;
+  font-size: 13px;
+}
+.etf-table thead th {
+  text-align: right;
+  padding: 12px 10px 8px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: rgba(245, 254, 253, 0.50);
+  border-bottom: 1px solid var(--hl-border);
+  font-weight: 700;
+}
+.etf-table thead th:first-child { text-align: left; }
+.etf-ticker-chip {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}
+.etf-issuer-tag {
+  font-size: 10px;
+  font-weight: 400;
+  color: rgba(245, 254, 253, 0.40);
+  margin-top: 3px;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+.etf-meta-row td {
+  text-align: right;
+  padding: 4px 10px;
+  font-size: 10px;
+  color: rgba(245, 254, 253, 0.45);
+  letter-spacing: 0.08em;
+}
+.etf-meta-row td:first-child {
+  text-align: left;
+  color: rgba(245, 254, 253, 0.35);
+  font-weight: 700;
+}
+.etf-table tbody td {
+  padding: 9px 10px;
+  text-align: right;
+  border-bottom: 1px solid rgba(151, 252, 228, 0.06);
+  color: var(--hl-foam);
+}
+.etf-table tbody td.etf-date {
+  text-align: left;
+  color: rgba(245, 254, 253, 0.70);
+  font-size: 12px;
+}
+.etf-table tbody td.etf-total { font-weight: 700; }
+.etf-pos { color: var(--hl-aqua); }
+.etf-neg { color: #ff6b7a; }
+.etf-zero { color: rgba(245, 254, 253, 0.30); }

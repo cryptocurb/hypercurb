@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "unit": "US$ millions",
+    "source": "Farside Investors (farside.co.uk/hyp/)",
+    "launchDate": "2026-05-12",
+    "updatedAt": "2026-06-02",
+    "note": "INITIAL ESTIMATE — anchored to public milestones: THYP $1.2M day-1, May 20 = $25.5M record session (THYP $16.6M + BHYP $8.8M), BHYP $19M single-day record, $54M through 7 sessions, $117M through 10 sessions. Verify and overwrite with the official Farside HYP table at farside.co.uk/hyp/ before posting to x.com.",
+    "howToUpdate": "Each trading day, append one row to `daily` with each issuer's net flow in US$ millions (negative = outflow). Bump `updatedAt`. Commit + push — Vercel redeploys and the ETF tab updates.",
+    "issuers": [
+      { "key": "bhyp", "ticker": "BHYP", "badge": "BIT", "name": "Bitwise", "fee": 0.40, "staking": true, "launchDate": "2026-05-15" },
+      { "key": "thyp", "ticker": "THYP", "badge": "21S", "name": "21Shares", "fee": 0.30, "staking": false, "launchDate": "2026-05-12" }
+    ]
+  },
+  "daily": [
+    { "date": "2026-05-12", "bhyp": 0.0,  "thyp": 1.2 },
+    { "date": "2026-05-13", "bhyp": 0.0,  "thyp": 2.5 },
+    { "date": "2026-05-14", "bhyp": 0.0,  "thyp": 3.0 },
+    { "date": "2026-05-15", "bhyp": 4.0,  "thyp": 4.5 },
+    { "date": "2026-05-18", "bhyp": 3.5,  "thyp": 2.0 },
+    { "date": "2026-05-19", "bhyp": 3.0,  "thyp": 4.8 },
+    { "date": "2026-05-20", "bhyp": 8.8,  "thyp": 16.6 },
+    { "date": "2026-05-21", "bhyp": 4.0,  "thyp": 3.0 },
+    { "date": "2026-05-22", "bhyp": 7.5,  "thyp": 5.0 },
+    { "date": "2026-05-26", "bhyp": 19.0, "thyp": 25.0 },
+    { "date": "2026-05-27", "bhyp": 6.0,  "thyp": 8.0 },
+    { "date": "2026-05-28", "bhyp": 4.5,  "thyp": 5.5 },
+    { "date": "2026-05-29", "bhyp": 4.0,  "thyp": 3.0 },
+    { "date": "2026-06-01", "bhyp": 3.0,  "thyp": 2.5 },
+    { "date": "2026-06-02", "bhyp": 3.5,  "thyp": 4.0 }
+  ]
+}

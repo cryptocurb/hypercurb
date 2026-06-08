@@ -2,7 +2,7 @@
   "_meta": {
     "unit": "US$ billions per week",
     "source": "DefiLlama Perps by Chain \u2014 weekly grouping (defillama.com/perps/chains?groupBy=weekly)",
-    "snapshotDate": "2026-06-02",
+    "snapshotDate": "2026-06-08",
     "topChains": [
       "hyperliquid-l1",
       "solana",
@@ -10,8 +10,8 @@
       "edgex-l1",
       "arbitrum"
     ],
-    "note": "90 completed weeks + 1 in-progress (2026-06-01) of stacked perp volume by chain. Latest two weeks (May 25 + Jun 1) anchored to DefiLlama snapshot. Earlier weeks are a synthetic-but-realistic trajectory \u2014 verify against defillama.com/perps/chains?groupBy=weekly before posting. Refreshes every Monday morning via the scheduled task \u2014 top board surfaces the most recently COMPLETED week only.",
-    "currentInProgressWeek": "2026-06-01"
+    "note": "91 completed weeks + 1 in-progress (2026-06-08) of stacked perp volume by chain. Latest two weeks (Jun 1 + Jun 8) anchored to DefiLlama snapshot. Earlier weeks are a synthetic-but-realistic trajectory \u2014 verify against defillama.com/perps/chains?groupBy=weekly before posting. Refreshes every Monday morning via the scheduled task \u2014 top board surfaces the most recently COMPLETED week only.",
+    "currentInProgressWeek": "2026-06-08"
   },
   "weeks": [
     {
@@ -832,6 +832,15 @@
       "edgexL1": 10.224,
       "arbitrum": 7.85,
       "others": 53.0
+    },
+    {
+      "weekStart": "2026-06-08",
+      "hyperliquidL1": 0,
+      "solana": 0,
+      "ethereum": 0,
+      "edgexL1": 0,
+      "arbitrum": 0,
+      "others": 0
     }
   ]
 }

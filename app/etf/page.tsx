@@ -68,10 +68,12 @@ export default function EtfPage() {
   const weeks = weeklyFlows();
 
   // ----- Cumulative-by-issuer chart series + stats -----
-  // Hyperliquid palette: aqua for BHYP (biggest), purple for THYP (contrast).
+  // Hyperliquid palette: aqua for BHYP, purple for THYP, neutral gray for
+  // HYPG (Grayscale's brand is gray; matches their wordmark).
   const ISSUER_COLORS: Record<IssuerKey, string> = {
     bhyp: "#97FCE4", // Hyperliquid aquamarine — primary
     thyp: "#B695FF", // soft purple — distinguishable from aqua
+    hypg: "#A6A6B8", // neutral gray — Grayscale brand
   };
 
   const cumData = cumulativeByIssuer();

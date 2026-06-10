@@ -3,30 +3,159 @@
     "unit": "US$ millions",
     "source": "Farside Investors (farside.co.uk/hyp/)",
     "launchDate": "2026-05-12",
-    "updatedAt": "2026-06-02",
-    "note": "INITIAL ESTIMATE — anchored to public milestones: THYP $1.2M day-1, May 20 = $25.5M record session (THYP $16.6M + BHYP $8.8M), BHYP $19M single-day record, $54M through 7 sessions, $117M through 10 sessions. Verify and overwrite with the official Farside HYP table at farside.co.uk/hyp/ before posting to x.com.",
-    "howToUpdate": "Each trading day, append one row to `daily` with each issuer's net flow in US$ millions (negative = outflow). Bump `updatedAt`. Commit + push — Vercel redeploys and the ETF tab updates.",
-    "upcomingIssuers": "Grayscale HYPE ETF — 0.29% mgmt fee per S-1, expected to launch the week of Jun 1, 2026 (James Seyffart / Bloomberg). Add as a third issuer when it begins trading; ticker TBD.",
+    "updatedAt": "2026-06-09",
+    "note": "Historical estimates for May 12-21 (pre-Farside coverage); all rows from May 22 onward reflect official Farside data.",
+    "howToUpdate": "Each trading day, append one row to `daily` with each issuer's net flow in US$ millions (negative = outflow). Bump `updatedAt`. Commit + push \u2014 Vercel redeploys and the ETF tab updates.",
     "issuers": [
-      { "key": "bhyp", "ticker": "BHYP", "badge": "BIT", "name": "Bitwise",  "fee": 0.34, "staking": true, "launchDate": "2026-05-15" },
-      { "key": "thyp", "ticker": "THYP", "badge": "21S", "name": "21Shares", "fee": 0.30, "staking": true, "launchDate": "2026-05-12" }
+      {
+        "key": "bhyp",
+        "ticker": "BHYP",
+        "badge": "BIT",
+        "name": "Bitwise",
+        "fee": 0.34,
+        "staking": true,
+        "launchDate": "2026-05-15"
+      },
+      {
+        "key": "thyp",
+        "ticker": "THYP",
+        "badge": "21S",
+        "name": "21Shares",
+        "fee": 0.3,
+        "staking": true,
+        "launchDate": "2026-05-12"
+      },
+      {
+        "key": "hypg",
+        "ticker": "HYPG",
+        "badge": "GRY",
+        "name": "Grayscale",
+        "fee": 0.29,
+        "staking": true,
+        "launchDate": "2026-06-03"
+      }
     ]
   },
   "daily": [
-    { "date": "2026-05-12", "bhyp": 0.0,  "thyp": 1.2 },
-    { "date": "2026-05-13", "bhyp": 0.0,  "thyp": 2.5 },
-    { "date": "2026-05-14", "bhyp": 0.0,  "thyp": 3.0 },
-    { "date": "2026-05-15", "bhyp": 4.0,  "thyp": 4.5 },
-    { "date": "2026-05-18", "bhyp": 3.5,  "thyp": 2.0 },
-    { "date": "2026-05-19", "bhyp": 3.0,  "thyp": 4.8 },
-    { "date": "2026-05-20", "bhyp": 8.8,  "thyp": 16.6 },
-    { "date": "2026-05-21", "bhyp": 4.0,  "thyp": 3.0 },
-    { "date": "2026-05-22", "bhyp": 7.5,  "thyp": 5.0 },
-    { "date": "2026-05-26", "bhyp": 19.0, "thyp": 25.0 },
-    { "date": "2026-05-27", "bhyp": 6.0,  "thyp": 8.0 },
-    { "date": "2026-05-28", "bhyp": 4.5,  "thyp": 5.5 },
-    { "date": "2026-05-29", "bhyp": 4.0,  "thyp": 3.0 },
-    { "date": "2026-06-01", "bhyp": 3.0,  "thyp": 2.5 },
-    { "date": "2026-06-02", "bhyp": 3.5,  "thyp": 4.0 }
+    {
+      "date": "2026-05-12",
+      "bhyp": 0.0,
+      "thyp": 1.2,
+      "hypg": 0.0
+    },
+    {
+      "date": "2026-05-13",
+      "bhyp": 0.0,
+      "thyp": 2.5,
+      "hypg": 0.0
+    },
+    {
+      "date": "2026-05-14",
+      "bhyp": 0.0,
+      "thyp": 3.0,
+      "hypg": 0.0
+    },
+    {
+      "date": "2026-05-15",
+      "bhyp": 4.0,
+      "thyp": 4.5,
+      "hypg": 0.0
+    },
+    {
+      "date": "2026-05-18",
+      "bhyp": 3.5,
+      "thyp": 2.0,
+      "hypg": 0.0
+    },
+    {
+      "date": "2026-05-19",
+      "bhyp": 3.0,
+      "thyp": 4.8,
+      "hypg": 0.0
+    },
+    {
+      "date": "2026-05-20",
+      "bhyp": 8.8,
+      "thyp": 16.6,
+      "hypg": 0.0
+    },
+    {
+      "date": "2026-05-21",
+      "bhyp": 4.0,
+      "thyp": 3.0,
+      "hypg": 0.0
+    },
+    {
+      "date": "2026-05-22",
+      "bhyp": 11.0,
+      "thyp": 0.0,
+      "hypg": 0.0
+    },
+    {
+      "date": "2026-05-26",
+      "bhyp": 19.0,
+      "thyp": 1.4,
+      "hypg": 0.0
+    },
+    {
+      "date": "2026-05-27",
+      "bhyp": 1.7,
+      "thyp": 1.7,
+      "hypg": 0.0
+    },
+    {
+      "date": "2026-05-28",
+      "bhyp": 1.0,
+      "thyp": 0.7,
+      "hypg": 0.0
+    },
+    {
+      "date": "2026-05-29",
+      "bhyp": 22.1,
+      "thyp": 9.5,
+      "hypg": 0.0
+    },
+    {
+      "date": "2026-06-01",
+      "bhyp": 0.0,
+      "thyp": 1.3,
+      "hypg": 0.0
+    },
+    {
+      "date": "2026-06-02",
+      "bhyp": 3.1,
+      "thyp": 0.0,
+      "hypg": 0.0
+    },
+    {
+      "date": "2026-06-03",
+      "bhyp": 0.0,
+      "thyp": 3.0,
+      "hypg": 0.5
+    },
+    {
+      "date": "2026-06-04",
+      "bhyp": 7.5,
+      "thyp": 0.0,
+      "hypg": 4.7
+    },
+    {
+      "date": "2026-06-05",
+      "bhyp": -2.9,
+      "thyp": 0.0,
+      "hypg": 0.0
+    },
+    {
+      "date": "2026-06-08",
+      "bhyp": 1.8,
+      "thyp": 0.0,
+      "hypg": 0.7
+    },
+    {
+      "date": "2026-06-09",
+      "bhyp": 0.0,
+      "thyp": 0.0,
+      "hypg": 0.0
+    }
   ]
 }

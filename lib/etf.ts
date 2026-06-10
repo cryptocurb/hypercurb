@@ -1,8 +1,8 @@
 import etfJson from "@/data/etf-flows.json";
 
-export type IssuerKey = "bhyp" | "thyp";
+export type IssuerKey = "bhyp" | "thyp" | "hypg";
 
-export const ISSUER_ORDER: IssuerKey[] = ["bhyp", "thyp"];
+export const ISSUER_ORDER: IssuerKey[] = ["bhyp", "thyp", "hypg"];
 
 export type Issuer = {
   key: IssuerKey;
@@ -44,9 +44,10 @@ export function etfView() {
   const f = getEtfFile();
   const issuers = f._meta.issuers;
 
-  // Running per-issuer cumulative — both issuers start at $0 (launch is in
-  // the daily array, no historical anchor needed).
-  const cum: Record<IssuerKey, number> = { bhyp: 0, thyp: 0 };
+  // Running per-issuer cumulative — all issuers start at $0 (launch is in
+  // the daily array, no historical anchor needed). HYPG starts trading
+  // ~Jun 3 2026 so its early rows are 0.
+  const cum: Record<IssuerKey, number> = { bhyp: 0, thyp: 0, hypg: 0 };
 
   const rows: ComputedRow[] = f.daily.map((r) => {
     for (const k of ISSUER_ORDER) cum[k] += r[k];
@@ -113,11 +114,11 @@ export type IssuerCumulativeRow = { date: string } & Record<IssuerKey, number>;
 
 export function cumulativeByIssuer(): IssuerCumulativeRow[] {
   const f = getEtfFile();
-  const cum: Record<IssuerKey, number> = { bhyp: 0, thyp: 0 };
+  const cum: Record<IssuerKey, number> = { bhyp: 0, thyp: 0, hypg: 0 };
 
-  // Anchor row at launch date — both at $0
+  // Anchor row at launch date — all at $0
   const rows: IssuerCumulativeRow[] = [
-    { date: f._meta.launchDate, bhyp: 0, thyp: 0 },
+    { date: f._meta.launchDate, bhyp: 0, thyp: 0, hypg: 0 },
   ];
 
   for (const r of f.daily) {
@@ -126,6 +127,7 @@ export function cumulativeByIssuer(): IssuerCumulativeRow[] {
       date: r.date,
       bhyp: Math.round(cum.bhyp * 10) / 10,
       thyp: Math.round(cum.thyp * 10) / 10,
+      hypg: Math.round(cum.hypg * 10) / 10,
     });
   }
 
@@ -136,9 +138,10 @@ export function cumulativeByIssuer(): IssuerCumulativeRow[] {
  *  (US trading week). Used by the weekly bar chart on the ETF page. */
 export type WeekPoint = {
   weekStart: string; // ISO date of the Monday of the week
-  flowMm: number; // total net flow across both issuers
+  flowMm: number; // total net flow across all issuers
   bhyp: number;
   thyp: number;
+  hypg: number;
 };
 
 function mondayOf(iso: string): string {
@@ -163,13 +166,15 @@ export function weeklyFlows(): WeekPoint[] {
     if (existing) {
       existing.bhyp += r.bhyp;
       existing.thyp += r.thyp;
-      existing.flowMm = existing.bhyp + existing.thyp;
+      existing.hypg += r.hypg;
+      existing.flowMm = existing.bhyp + existing.thyp + existing.hypg;
     } else {
       buckets.set(wk, {
         weekStart: wk,
         bhyp: r.bhyp,
         thyp: r.thyp,
-        flowMm: r.bhyp + r.thyp,
+        hypg: r.hypg,
+        flowMm: r.bhyp + r.thyp + r.hypg,
       });
     }
   }

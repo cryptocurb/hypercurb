@@ -118,7 +118,7 @@ export default function EtfPage() {
         <div>
           <h2 className="font-serif text-2xl text-white">HYPE ETF Flows</h2>
           <p className="font-mono text-xs text-white/50">
-            Daily net flows by issuer · BHYP (Bitwise) + THYP (21Shares) ·
+            Daily net flows by issuer · BHYP (Bitwise) + THYP (21Shares) + HYPG (Grayscale) ·
             Source: Farside Investors · Updated {longDate(v.meta.updatedAt)}
           </p>
         </div>
@@ -346,7 +346,7 @@ export default function EtfPage() {
           Weekly net flow · since launch
         </h3>
         <p className="font-mono text-xs text-white/45 mt-1 mb-4">
-          Bars sum BHYP + THYP for each Mon–Fri trading week
+          Bars sum BHYP + THYP + HYPG for each Mon–Fri trading week
         </p>
         <WeeklyEtfBars weeks={weeks} />
       </div>

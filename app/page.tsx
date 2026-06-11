@@ -55,8 +55,8 @@ export default function Home() {
           <span className="hub-eyebrow">ETF Net Flow · since May 12</span>
           <span className="hub-value">{bigMm(etfTotalMm)}</span>
           <span className="hub-sub">
-            BHYP (Bitwise) + THYP (21Shares) cumulative net flow since launch
-            on May 12, 2026.
+            BHYP (Bitwise) + THYP (21Shares) + HYPG (Grayscale) cumulative
+            net flow since the May 12, 2026 launch.
           </span>
           <span className="hub-cta">Open ETF board</span>
         </Link>

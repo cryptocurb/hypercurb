@@ -3,7 +3,7 @@
     "unit": "US$ millions",
     "source": "Farside Investors (farside.co.uk/hyp/)",
     "launchDate": "2026-05-12",
-    "updatedAt": "2026-06-09",
+    "updatedAt": "2026-06-11",
     "note": "Historical estimates for May 12-21 (pre-Farside coverage); all rows from May 22 onward reflect official Farside data.",
     "howToUpdate": "Each trading day, append one row to `daily` with each issuer's net flow in US$ millions (negative = outflow). Bump `updatedAt`. Commit + push \u2014 Vercel redeploys and the ETF tab updates.",
     "issuers": [
@@ -150,6 +150,18 @@
       "bhyp": 1.8,
       "thyp": 0.0,
       "hypg": 0.7
+    },
+    {
+      "date": "2026-06-09",
+      "bhyp": 0.0,
+      "thyp": 0.0,
+      "hypg": 0.0
+    },
+    {
+      "date": "2026-06-10",
+      "bhyp": 1.8,
+      "thyp": 0.0,
+      "hypg": 1.0
     }
   ]
 }

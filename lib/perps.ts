@@ -1,3 +1,7 @@
+// TODO: perps-weekly.json and perps-leaderboard.json are candidates for
+// deletion once lib/perpsLive.ts is wired in and the live API is available.
+// perps-chains-weekly.json powers the stacked chart and chain snapshot until
+// getPerpsChainVolumes() can replace it.
 import weeklyJson from "@/data/perps-weekly.json";
 import leaderboardJson from "@/data/perps-leaderboard.json";
 import chainsWeeklyJson from "@/data/perps-chains-weekly.json";

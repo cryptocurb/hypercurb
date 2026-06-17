@@ -26,6 +26,7 @@ const COINGECKO_URL =
  */
 export default function HypePriceHero() {
   const [price, setPrice] = useState<PriceData | null>(null);
+  const [fetchError, setFetchError] = useState(false);
   const widgetCreated = useRef(false);
 
   useEffect(() => {
@@ -33,11 +34,19 @@ export default function HypePriceHero() {
     async function load() {
       try {
         const r = await fetch(COINGECKO_URL);
-        if (!r.ok) return;
+        if (!r.ok) {
+          console.error(`[HypePriceHero] CoinGecko fetch failed: HTTP ${r.status}`);
+          if (!cancelled) setFetchError(true);
+          return;
+        }
         const j = (await r.json()) as { hyperliquid?: PriceData };
-        if (!cancelled && j.hyperliquid) setPrice(j.hyperliquid);
-      } catch {
-        /* ignore */
+        if (!cancelled && j.hyperliquid) {
+          setPrice(j.hyperliquid);
+          setFetchError(false);
+        }
+      } catch (err) {
+        console.error("[HypePriceHero] CoinGecko fetch error:", err);
+        if (!cancelled) setFetchError(true);
       }
     }
     load();
@@ -100,7 +109,11 @@ export default function HypePriceHero() {
         <div className="ph-strip-headline">
           <span className="ph-label">HYPE · USD</span>
           <span className="ph-price">
-            {price ? `$${price.usd.toFixed(2)}` : "—"}
+            {price
+              ? `$${price.usd.toFixed(2)}`
+              : fetchError
+              ? "Price unavailable"
+              : "—"}
           </span>
           <span className={`ph-change ${up ? "ph-up" : "ph-down"}`}>
             {price ? fmtPct(price.usd_24h_change, 2) : "—"}{" "}

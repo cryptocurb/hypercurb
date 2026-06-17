@@ -2,17 +2,7 @@
 
 import { useState } from "react";
 import type { StackWeek, ChainDef } from "@/lib/perps";
-
-function weekRange(iso: string) {
-  const [y, m, d] = iso.split("-").map(Number);
-  const start = new Date(y, m - 1, d);
-  const end = new Date(y, m - 1, d + 6);
-  const sM = start.toLocaleDateString("en-US", { month: "short" });
-  const eM = end.toLocaleDateString("en-US", { month: "short" });
-  return sM === eM
-    ? `${start.getDate()} – ${end.getDate()} ${eM} ${end.getFullYear()}`
-    : `${start.getDate()} ${sM} – ${end.getDate()} ${eM} ${end.getFullYear()}`;
-}
+import { weekRangeLabel as weekRange } from "@/lib/dates";
 
 const OTHERS: ChainDef = { slug: "others", name: "Others", color: "#5a5a72" };
 

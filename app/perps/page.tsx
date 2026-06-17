@@ -3,36 +3,12 @@ import BoardHeader from "@/components/BoardHeader";
 import ScreenshotButton from "@/components/ScreenshotButton";
 import StackedWeekly from "@/components/charts/StackedWeekly";
 import { perpsView } from "@/lib/perps";
+import { longDate, weekRangeLabel } from "@/lib/dates";
 
-// Revalidate every 7 days so the "latest completed week" recomputes Monday
-// morning. The Cowork scheduled task (run Mondays) also pings the user to
-// update the data file from DefiLlama for that week.
-export const revalidate = 604800;
+// TODO: restore `export const revalidate` once live fetch calls replace the
+// static JSON imports in lib/perps.ts (the no-op was removed per audit).
 
 export const metadata = { title: "Perp Volume · Hypercurb" };
-
-// ---------- helpers ----------
-function parseLocal(d: string) {
-  const [y, m, dd] = d.split("-").map(Number);
-  return new Date(y, m - 1, dd);
-}
-function longDate(d: string) {
-  return parseLocal(d).toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-}
-function weekRangeLabel(iso: string): string {
-  const [y, m, d] = iso.split("-").map(Number);
-  const start = new Date(y, m - 1, d);
-  const end = new Date(y, m - 1, d + 6);
-  const sM = start.toLocaleDateString("en-US", { month: "short" });
-  const eM = end.toLocaleDateString("en-US", { month: "short" });
-  return sM === eM
-    ? `${start.getDate()}–${end.getDate()} ${eM}, ${end.getFullYear()}`
-    : `${start.getDate()} ${sM} – ${end.getDate()} ${eM}, ${end.getFullYear()}`;
-}
 function bigBn(bn: number) {
   return `$${bn.toFixed(2)}B`;
 }

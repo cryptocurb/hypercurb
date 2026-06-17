@@ -10,21 +10,11 @@ import {
   ISSUER_ORDER,
   type IssuerKey,
 } from "@/lib/etf";
+import { parseLocal, longDate } from "@/lib/dates";
 
 export const metadata = { title: "ETF Flows · Hypercurb" };
 
 // ----- date helpers -----
-function parseLocal(d: string) {
-  const [y, m, dd] = d.split("-").map(Number);
-  return new Date(y, m - 1, dd);
-}
-function longDate(d: string) {
-  return parseLocal(d).toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-}
 function shortMD(d: string) {
   return parseLocal(d).toLocaleDateString("en-US", {
     month: "short",

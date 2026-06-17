@@ -2,7 +2,7 @@
   "_meta": {
     "unit": "US$ billions",
     "source": "DefiLlama Perps (defillama.com/perps)",
-    "snapshotDate": "2026-06-08",
+    "snapshotDate": "2026-06-14",
     "totalMarket30dBn": 540.84,
     "note": "Top perp DEX leaderboard \u2014 current snapshot. Hyperliquid anchor (31.9% share) is from DefiLlama; competitor numbers are best-effort estimates. Update the whole array each week by visiting defillama.com/perps and pasting the latest figures."
   },
@@ -11,7 +11,7 @@
       "rank": 1,
       "name": "Hyperliquid",
       "chain": "Hyperliquid L1",
-      "vol7dBn": 45.94,
+      "vol7dBn": 56.01,
       "vol30dBn": 172.63,
       "oiBn": 10.1,
       "isHyperliquid": true

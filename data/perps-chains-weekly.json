@@ -2,7 +2,7 @@
   "_meta": {
     "unit": "US$ billions per week",
     "source": "DefiLlama Perps by Chain \u2014 weekly grouping (defillama.com/perps/chains?groupBy=weekly)",
-    "snapshotDate": "2026-06-01",
+    "snapshotDate": "2026-06-14",
     "topChains": [
       "hyperliquid-l1",
       "solana",
@@ -826,12 +826,21 @@
     },
     {
       "weekStart": "2026-06-01",
-      "hyperliquidL1": 45.944,
-      "solana": 14.763,
-      "ethereum": 13.252,
-      "edgexL1": 10.224,
-      "arbitrum": 7.85,
-      "others": 53.0
+      "hyperliquidL1": 83.606,
+      "solana": 19.041,
+      "ethereum": 13.459,
+      "edgexL1": 14.012,
+      "arbitrum": 12.132,
+      "others": 39.0
     },
+    {
+      "weekStart": "2026-06-08",
+      "hyperliquidL1": 56.010,
+      "solana": 11.977,
+      "ethereum": 13.095,
+      "edgexL1": 5.877,
+      "arbitrum": 7.023,
+      "others": 27.3
+    }
   ]
 }

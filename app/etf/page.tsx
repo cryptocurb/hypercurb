@@ -331,30 +331,99 @@ export default function EtfPage() {
       </BoardFrame>
 
       {/* ---- Weekly chart ---- */}
-      <div className="card-border p-5 md:p-7">
-        <h3 className="font-mono text-sm uppercase tracking-widest text-white/80">
-          Weekly net flow · since launch
-        </h3>
-        <p className="font-mono text-xs text-white/45 mt-1 mb-4">
-          Bars sum BHYP + THYP + HYPG for each Mon–Fri trading week
-        </p>
-        <WeeklyEtfBars weeks={weeks} />
-      </div>
-
-      {/* ---- Cumulative chart ---- */}
-      <div className="card-border p-5 md:p-7">
-        <h3 className="font-mono text-sm uppercase tracking-widest text-white/80">
-          Cumulative flows by issuer
-        </h3>
-        <p className="font-mono text-xs text-white/45 mt-1 mb-4">
-          Running total per issuer since May 12, 2026 — stack height = total AUM
-        </p>
-        <CumulativeStackedArea
-          data={cumData}
-          series={cumSeries}
-          height={400}
+      <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+        <div>
+          <h2 className="font-serif text-2xl text-white">Weekly Net Flow</h2>
+          <p className="font-mono text-xs text-white/50">
+            BHYP + THYP + HYPG combined · each Mon–Fri trading week
+          </p>
+        </div>
+        <ScreenshotButton
+          targetId="etf-weekly-shot"
+          filename={`hype-etf-weekly-${latest.date}.png`}
         />
       </div>
+
+      <BoardFrame id="etf-weekly-shot">
+        <div className="hl-card">
+          <BoardHeader
+            a="Hyperliquid"
+            b="ETF"
+            c="Weekly Flows"
+            sub={`Weekly net flows · BHYP + THYP + HYPG · Source: Farside Investors`}
+          />
+          <div style={{ marginTop: 8 }}>
+            <WeeklyEtfBars weeks={weeks} />
+          </div>
+          <div className="hl-source-bar">
+            <span className="hl-source-text">
+              Source: Farside Investors &nbsp;·&nbsp; weekly net flow since May
+              12, 2026 launch &nbsp;·&nbsp;{" "}
+              <span>
+                {weeks.length} trading weeks · latest{" "}
+                {lastWeek ? signed1(lastWeek.flowMm) : "—"}
+              </span>
+            </span>
+            <span className="hl-unit-tag">US$M</span>
+          </div>
+        </div>
+      </BoardFrame>
+
+      {/* ---- Cumulative chart ---- */}
+      <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+        <div>
+          <h2 className="font-serif text-2xl text-white">Cumulative Flows</h2>
+          <p className="font-mono text-xs text-white/50">
+            Running total per issuer since May 12, 2026
+          </p>
+        </div>
+        <ScreenshotButton
+          targetId="etf-cumulative-shot"
+          filename={`hype-etf-cumulative-${latest.date}.png`}
+        />
+      </div>
+
+      <BoardFrame id="etf-cumulative-shot">
+        <div className="hl-card">
+          <BoardHeader
+            a="Hyperliquid"
+            b="ETF"
+            c="Cumulative Flows"
+            sub={`Running total by issuer since launch · stack height = total AUM · Source: Farside Investors`}
+          />
+          <div style={{ marginTop: 8 }}>
+            <CumulativeStackedArea
+              data={cumData}
+              series={cumSeries}
+              height={400}
+            />
+          </div>
+          <div className="hl-stats-row">
+            {issuerStats.map((iss) => (
+              <div key={iss.key} className="hl-stat-box">
+                <div
+                  className="hl-stat-label"
+                  style={{ color: iss.color }}
+                >
+                  {iss.ticker}
+                </div>
+                <div className="hl-stat-value" style={{ color: iss.color }}>
+                  {bigMm(iss.value)}
+                </div>
+                <div className="hl-stat-sub">{iss.name}</div>
+              </div>
+            ))}
+          </div>
+          <div className="hl-source-bar">
+            <span className="hl-source-text">
+              Source: Farside Investors &nbsp;·&nbsp; cumulative since May 12,
+              2026 &nbsp;·&nbsp;{" "}
+              <span>Total AUM {bigMm(cumTotalMm)}</span>
+            </span>
+            <span className="hl-unit-tag">US$M</span>
+          </div>
+        </div>
+      </BoardFrame>
 
       <p className="font-mono text-[11px] text-white/40 text-center pt-2">
         {v.meta.note}

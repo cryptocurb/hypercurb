@@ -331,7 +331,8 @@ export default function EtfPage() {
       </BoardFrame>
 
       {/* ---- Weekly chart ---- */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+      <div className="space-y-2">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h2 className="font-serif text-2xl text-white">Weekly Net Flow</h2>
           <p className="font-mono text-xs text-white/50">
@@ -368,9 +369,11 @@ export default function EtfPage() {
           </div>
         </div>
       </BoardFrame>
+      </div>
 
       {/* ---- Cumulative chart ---- */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+      <div className="space-y-2">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h2 className="font-serif text-2xl text-white">Cumulative Flows</h2>
           <p className="font-mono text-xs text-white/50">
@@ -424,6 +427,7 @@ export default function EtfPage() {
           </div>
         </div>
       </BoardFrame>
+      </div>
 
       <p className="font-mono text-[11px] text-white/40 text-center pt-2">
         {v.meta.note}
